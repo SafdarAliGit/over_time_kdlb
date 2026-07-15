@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-03 09:43:48.505842",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "consider_over_time",
+  "department",
+  "holiday_list",
+  "column_break_kwr5",
+  "award_on_over_time",
+  "award_hours",
+  "on_over_time_hours"
+ ],
+ "fields": [
+  {
+   "default": ".5",
+   "description": "Consider Over Time Greater Than (Hours), Default is 0.5 hours",
+   "fieldname": "consider_over_time",
+   "fieldtype": "Float",
+   "label": "Consider Over Time"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "department",
+   "fieldtype": "Table MultiSelect",
+   "label": "Department",
+   "options": "Department Item"
+  },
+  {
+   "fieldname": "holiday_list",
+   "fieldtype": "Link",
+   "label": "Holiday List",
+   "options": "Holiday List"
+  },
+  {
+   "fieldname": "column_break_kwr5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "If Overt Time is greater than 9 hours then it will considered 14 hours by adding more hours. ",
+   "fieldname": "award_on_over_time",
+   "fieldtype": "Check",
+   "label": "Award On Over Time"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.award_on_over_time == 1",
+   "fieldname": "award_hours",
+   "fieldtype": "Float",
+   "label": "Award Hours"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.award_on_over_time == 1",
+   "description": "Minimum Hours of Over Time on which Award hours given.",
+   "fieldname": "on_over_time_hours",
+   "fieldtype": "Float",
+   "label": "On Over Time Hours"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-03-31 22:10:52.991027",
+ "modified_by": "Administrator",
+ "module": "Over Time Kdlb",
+ "name": "Over Time Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
